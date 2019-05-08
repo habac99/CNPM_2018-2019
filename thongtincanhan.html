@@ -2,16 +2,17 @@
 <html>
 <head>
         
-<link rel="stylesheet" type="text/css" href="style/thongtin.css">
+<link rel="stylesheet" type="text/css" href="Styles/thongtin.css">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
 
 </head>
 <body>
     <div class="topnav">
     
         <a href="#">Trang chủ</a>
-        <a href="#" class="active">Thông tin</a>
-        <a href="#" >Làm bài </a>
+        <a href="thongtincanhan.html" class="active">Thông tin</a>
+        <a href="lambaithi.html" >Làm bài </a>
         <a href="#">Bảng xếp hạng</a>
         <button >Đăng xuất</button>
         <p>Xin chào : Người Chơi 1</p>
@@ -75,11 +76,18 @@
         </div>
         <div class="row">
             <div class="col-70">
-                <a href="#" onclick="fixFunction()">Thay đổi thông tin cá nhân</a>
+                <button type="button" onclick="fixFunction()">Thay đổi thông tin cá nhân</button>
             </div>
         </div>
     </form>
     </div>
-    
+    <script>
+        function fixFunction(){
+            var input = document.getElementsByTagName('input');
+            for (var i = input.length, n = 0; n < i; n++){
+                input[n].disabled = !input[n].disabled;
+            }
+        }
+    </script>
 </body>
 </html>

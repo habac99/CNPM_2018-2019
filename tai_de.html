@@ -2,9 +2,9 @@
 <html>
 <head>
 
-<link rel="stylesheet" type="text/css" href="style/index.css">
+<link rel="stylesheet" type="text/css" href="Styles/index.css">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta charset="utf-8" />
+<meta charset="UTF-8">
 
 </head>
 <body>
@@ -12,7 +12,7 @@
     
         <a href="#">Trang chủ</a>
         <a href="#">Thông tin</a>
-        <a href="#" class="active">Tải đề </a>
+        <a href="tai_de.html" class="active">Tải đề </a>
         <a href="#">Thông tin người chơi</a>
         <a href="#">Thông tin phụ huynh người chơi</a>
         <button >Đăng xuất</button>
@@ -22,14 +22,26 @@
     <!--Form send file to php page-->
     <form action="">
     <div class="row">
+        <div class="col-15">
         <label for="upload1">Tải đề</label>
+        </div>
+        <div class="col-70">
         <input type="file" name="upload1" id="upload1">
+        </div>
     </div>
     <div class = "row">
+        <div class="col-15">
         <label for="upload2">Tải đáp án + pattern</label>
+        </div>
+    <div class="col-70">
         <input type="file" name="upload2" id="upload2">
+        </div>
     </div>
     <div class="row">
+        <div class="col-15">
+
+        </div>
+        <div class = "col-70">
         <div class= "trueanswer">
             <table>
                     <tr>
@@ -106,6 +118,7 @@
                 </table>
 
     </div>
+</div>
 </div>
     <input type="submit" value="Đăng tải">
 </form>

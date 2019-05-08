@@ -4,6 +4,7 @@
 
 <link rel="stylesheet" type="text/css" href="styles/index.css">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
 
 </head>
 <body>
@@ -11,8 +12,8 @@
 <div class="topnav">
     
         <a href="#">Trang chủ</a>
-        <a href="#">Thông tin</a>
-        <a href="#" class="active" >Làm bài </a>
+        <a href="thongtincanhan.html" >Thông tin</a>
+        <a href="lambaithi.html" class="active" >Làm bài </a>
         <a href="#">Bảng xếp hạng</a>
         <button >Đăng xuất</button>
         <p>Xin chào : Người Chơi 1</p>
@@ -25,33 +26,7 @@
     <div class ="answer_box">
         <p id = "demo" Style="text-align: center;">Time</p>
         <div class="row">
-        <script>
-            document.getElementById("demo").innerHTML = 01 + " min : " + 00 + " sec left!";
-              var x = setInterval(function(){
-              var currenttime = document.getElementById("demo").innerHTML;
-              var time_array = currenttime.split("min :");
-                time_array[1] = time_array[1].replace('sec left!','');
-                document.getElementById("demo").innerHTML = time_array[1];
-                var min = time_array[0];
-                var sec = decoratesec((time_array[1]-1));
-                if ( sec == 59){
-                min = min -1;
-            }
-            document.getElementById("demo").innerHTML = min + " min : " + sec + " sec left!";
-            if ( min == 0 && time == 0)
-                clearInterval(x);
-            document.getElementById("demo").innerHTML = "Time Up!";
-            /*Thêm một cửa sổ pop up + hướng trang kết quả*/
-        }, 1000);
-        
-        function decoratesec(sec){
-            if ( sec >= 0 && sec < 10 )
-                sec = "0" + sec;
-            if ( sec < 0)
-                sec = "59";
-            return sec;
-        }
-    </script>
+
     
     </div>
     
@@ -141,5 +116,33 @@
 
     </div>
 
+    <script>
+            document.getElementById("demo").innerHTML = 01 + " min : " + 00 + " sec left!";
+              var x = setInterval(function(){
+              var currenttime = document.getElementById("demo").innerHTML;
+              var time_array = currenttime.split("min :");
+                time_array[1] = time_array[1].replace('sec left!','');
+                document.getElementById("demo").innerHTML = time_array[1];
+                var min = time_array[0];
+                var sec = decoratesec((time_array[1]-1));
+                if ( sec == 59){
+                min = min -1;
+            }
+            document.getElementById("demo").innerHTML = min + " min : " + sec + " sec left!";
+            if ( min == 0 && time == 0)
+                clearInterval(x);
+            document.getElementById("demo").innerHTML = "Time Up!";
+            /*Thêm một cửa sổ pop up + hướng trang kết quả*/
+        }, 1000);
+        
+        function decoratesec(sec){
+            if ( sec >= 0 && sec < 10 )
+                sec = "0" + sec;
+            if ( sec < 0)
+                sec = "59";
+            return sec;
+        }
+    </script>
+    
 </body>
 </html>
