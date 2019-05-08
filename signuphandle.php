@@ -23,8 +23,8 @@
     $password   = addslashes($_POST['txtPassword']);
     $email      = addslashes($_POST['txtEmail']);
     $fullname   = addslashes($_POST['txtFullname']);
-    $birthday   = addslashes($_POST['txtBirthday']);
-    $sex        = addslashes($_POST['txtSex']);
+    $birthday   = ($_POST['txtBirthday']);
+    $sex        = ($_POST['txtGender']);
     $phone      = addslashes($_POST['txtPhonenumber']);
 
     //Kiểm tra người dùng đã nhập liệu đầy đủ chưa

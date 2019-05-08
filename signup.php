@@ -3,85 +3,26 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>Trang đăng lý</title>
-<!--    <link href="styles/dangky.css" rel="stylesheet" type="text/css" />-->
+    <link rel="stylesheet" type="text/css" href="Styles/Dangky.css">
 </head>
 <body>
-<h1>Trang đăng ký thành viên</h1>
+
 <form action="signuphandle.php" method="POST">
-    <table cellpadding="0" cellspacing="0" border="1">
-        <tr>
-            <td>
-                Tên đăng nhập :
-            </td>
-            <td>
-                <input type="text" name="txtUsername" size="50" />
-            </td>
-        </tr>
-        <tr>
-            <td>
-                Mật khẩu :
-            </td>
-            <td>
-                <input type="password" name="txtPassword" size="50" />
-            </td>
-        </tr>
-        <tr>
-            <td>
-                Email :
-            </td>
-            <td>
-                <input type="text" name="txtEmail" size="50" />
-            </td>
-        </tr>
-        <tr>
-            <td>
-                Họ và tên :
-            </td>
-            <td>
-                <input type="text" name="txtFullname" size="50" />
-            </td>
-        </tr>
-        <tr>
-            <td>
-                Ngày sinh :
-            </td>
-            <td>
-                <input type="text" name="txtBirthday" size="50" />
-            </td>
-        </tr>
-        <tr>
-            <td>
-                Số điện thoại :
-            </td>
-            <td>
-                <input type="text" name="txtPhonenumber" size="50" />
-            </td>
-        </tr>
-        <tr>
-            <td>
-                Giới tính :
-            </td>
-            <td>
-                <select name="txtSex">
-                    <option value=""></option>
-                    <option value="Nam">Nam</option>
-                    <option value="Nu">Nữ</option>
-                </select>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                Chức vụ :
-            </td>
-            <td>
-                <select name="txtPosition">
-                    <option value=""></option>
-                    <option value="Giáo Viên">Giáo viên</option>
-                    <option value="Học Sinh">Học Sinh</option>
-                </select>
-            </td>
-        </tr>
-    </table>
+
+    <input class="inputt" placeholder="Tên đăng nhập" type="text" name = "txtUsername" required="">
+    <input class="inputt" placeholder="Mật khẩu" type="password" name = "txtPassword"  required="">
+    <input class="inputt" placeholder="Repeat Password" type="password" required="">
+    <input class="inputt" placeholder="Email" type="text" name = "txtEmail" required="">
+    <input class="inputt" placeholder="Họ và Tên" type="text" name = "txtFullname" required="">
+    <input class="inputt" placeholder="Số điện thoại" type="text" name = "txtPhonenumber" required="">
+    <input class="inputt" placeholder="Ngày sinh" type="date" name = "txtBirthday" required="">
+
+    <input class="chose" name="txtGender" type="radio" value="Nam" id="hoc" />Nam
+    <input class="chose" name="txtGender" type="radio" value="Nữ" />Nữ
+
+    <input class="chose" name="chucvu" type="radio" value="giaovien" id="hoc" />Giáo Viên
+    <input class="chose" name="chucvu" type="radio" value="hocsinh" />Học Sinh
+
     <input type="submit" value="Đăng ký" />
     <input type="reset" value="Nhập lại" />
 </form>
