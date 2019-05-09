@@ -8,22 +8,24 @@
 </head>
 <body>
     <form>
-        <input class="inputt" placeholder="Tên đăng nhập" type="text" name = "txtUsername" required="">
-        <input class="inputt" placeholder="Mật khẩu" type="password" name = "txtPassword"  required="">
-        <input class="inputt" placeholder="Repeat Password" type="password" required="">
-        <input class="inputt" placeholder="Email" type="text" name = "txtEmail" required="">
-        <input class="inputt" placeholder="Họ và Tên" type="text" name = "txtFullname" required="">
-        <input class="inputt" placeholder="Số điện thoại" type="text" name = "txtPhonenumber" required="">
-        <input class="inputt" placeholder="Ngày sinh" type="date" name = "txtBirthday" required="">
+        <h1>Đăng Ký</h1>
+        <input class="inputt" placeholder="Email" type="text" name="txtEmail" required="">
+        <input class="inputt" placeholder="Mật khẩu" type="password" name="txtPassword" required="">
+        <input class="inputt" placeholder="Nhập lại mật khẩu" type="password" required="">
+        <input class="inputt" placeholder="Họ và Tên" type="text" name="txtFullname" required="">
+        <input class="inputt" placeholder="Số điện thoại" type="text" name="txtPhonenumber" required="">
+        <input class="inputt" placeholder="Ngày sinh" type="date" name="txtBirthday" required="">
+        <div>
+            <input class="sex" name="txtGender" type="radio" value="Nam" id="hoc" />Nam
+            <input class="sex" name="txtGender" type="radio" value="Nữ" />Nữ
+        </div>
+        <div>
+            <input class="chose" name="chucvu" type="radio" value="giaovien" id="hoc" />Giáo Viên
+            <input class="chose" name="chucvu" type="radio" value="hocsinh" />Học Sinh
+        </div>
+        
+        <button>Đồng ý</button>
 
-        <input class="chose" name="txtGender" type="radio" value="Nam" id="hoc" />Nam
-        <input class="chose" name="txtGender" type="radio" value="Nữ" />Nữ
-
-        <input class="chose" name="chucvu" type="radio" value="giaovien" id="hoc" />Giáo Viên
-        <input class="chose" name="chucvu" type="radio" value="hocsinh" />Học Sinh
-
-        <input type="submit" value="Đăng ký" />
-        <input type="reset" value="Nhập lại" />
     </form>
 </body>
 </html>
