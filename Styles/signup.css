@@ -36,27 +36,17 @@ form {
     background-repeat: no-repeat;
 }
 
-.chose {
+.pos {
     margin-left: 25px;
+
 }
 .sex{
-    margin-left:25px;
-}
-
-button {
-    border: none;
-    background: #1abc9c;
-    cursor: pointer;
-    border-radius: 3px;
-    padding: 6px;
-    width: 200px;
-    color: white;
     margin-left: 25px;
-    margin-top: 25px;
-    box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.2);
+}
+.submit{
+    margin-left: 25px;
+}
+.reset{
+    margin-left: 60px;
 }
 
-    button:hover {
-        transform: translateY(-3px);
-        box-shadow: 0 6px 6px 0 rgba(0, 0, 0, 0.2);
-    }
