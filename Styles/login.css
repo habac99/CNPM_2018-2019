@@ -41,30 +41,44 @@ form h1 {
 
 
 
-/*button {*/
-  /*border: none;*/
-  /*background: #1abc9c;*/
-  /*cursor: pointer;*/
-  /*border-radius: 3px;*/
-  /*padding: 6px;*/
-  /*width: 200px;*/
-  /*color: white;*/
-  /*margin-left: 25px;*/
-  /*margin-top : 25px;*/
-  /*box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.2);*/
-/*}*/
-/*button:hover {*/
-  /*transform: translateY(-3px);*/
-  /*box-shadow: 0 6px 6px 0 rgba(0, 0, 0, 0.2);*/
-/*}*/
+button {
+  border: none;
+  background: #1abc9c;
+  cursor: pointer;
+  border-radius: 3px;
+  padding: 6px;
+  width: 200px;
+  color: white;
+  margin-left: 25px;
+  margin-top : 25px;
+  box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.2);
+}
+button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 6px 0 rgba(0, 0, 0, 0.2);
+}
 .submit{
-  box-sizing: border-box;
-  padding: 20px;
+  /*box-sizing: border-box;*/
+  /*padding: 20px;*/
+  /*background:#1abc9c;*/
+  border: none;
+  background: #1abc9c;
+  cursor: pointer;
+  border-radius: 3px;
+  padding: 6px;
+
+  color: white;
+  margin-left: 25px;
+  margin-top : 25px;
+  box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.2);
+
 }
 div {
   margin-left: 25px;
 }
-
+#hs{
+  margin-left: 30px;
+}
 u {
   margin: 25px 25px
 }

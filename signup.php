@@ -8,7 +8,7 @@
 <body>
 
 <form action="signuphandle.php" method="POST">
-
+    <h1>Đăng ký</h1>
     <input class="inputt" placeholder="Tên đăng nhập" type="text" name = "txtUsername" required="">
     <input class="inputt" placeholder="Mật khẩu" type="password" name = "txtPassword"  required="">
 <!--    <input class="inputt" placeholder="Repeat Password" type="password" required="">-->

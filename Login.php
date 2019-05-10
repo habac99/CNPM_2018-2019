@@ -9,11 +9,11 @@
 <body>
     <form action='login.php?do=login' method='POST'>
         <h1>Đăng Nhập </h1>
-        <input class="inputt"  placeholder="Email or Username" type='text' name="txtUser" required="">
+        <input class="inputt"  placeholder="Tên đăng nhập" type='text' name="txtUser" required="">
         <input class="inputt" placeholder="Mật khẩu" type="password" name="txtPassword" required="">
         <div>
-            <input class="pos" name="position" type="radio" value="giaovien" id="hoc" />Giáo Viên
-            <input class="pos" name="position" type="radio" value="hocsinh" />Học Sinh
+            <input class="pos"  name="position" type="radio" value="giaovien" id="gv" />Giáo Viên
+            <input class="pos" name="position" type="radio" value="hocsinh" id="hs" />Học Sinh
 
         </div>
 
@@ -22,7 +22,7 @@
         </u>
 
         <input class="submit" type='submit' name="dangnhap" value='Đăng nhập' />
-<!--        <button onclick="submit">Đăng nhập</button>-->
+<!--       <button class="submit" type="submit">Đăng nhập</button>-->
     </form>
 </body>
 </html>
