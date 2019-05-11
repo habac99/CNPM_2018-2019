@@ -45,9 +45,23 @@ form {
     margin-left: 25px;
 }
 .submit{
+    background: #1abc9c;
     margin-left: 25px;
+    margin-top: 25px;
+    box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.2);
+    color: white;
+    cursor: pointer;
+    border-radius: 3px;
+    border: none;
 }
 .reset{
+    background: #1abc9c;
     margin-left: 60px;
+    margin-top: 25px;
+    box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.2);
+    color: white;
+    cursor: pointer;
+    border-radius: 3px;
+    border: none;
 }
 
