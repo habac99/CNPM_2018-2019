@@ -97,6 +97,7 @@ if (isset($_POST['dangnhap']))
         //Lưu tên đăng nhập
         $_SESSION['username'] = $username;
         echo "Xin chào " . $username . ". Bạn đã đăng nhập thành công. <a href='tcHome.php'>Về trang chủ</a>";
+
         die();
     }
 
