@@ -10,17 +10,29 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title></title>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet" type="text/css" href="Styles/index.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta charset="UTF-8">
     </head>
     <body>
+    <div class="topnav">
+
+        <a href="stHome.php">Trang chủ</a>
+        <a href="thongtincanhan.html" >Thông tin</a>
+        <a href="doexam.php"  >Làm bài </a>
+        <a href="#">Bảng xếp hạng</a>
+        <a href="logout.php" >Đăng xuất </a>
+<!--        <p>Xin chào : Người Chơi </p>-->
+    </div>
        <?php
        if (isset($_SESSION['username']) && $_SESSION['username']){
            echo 'Bạn đã đăng nhập với tên là '.$_SESSION['username']."<br/>";
-           echo 'Click vào đây để <a href="logout.php">Logout</a>';
+          // echo 'Click vào đây để <a href="logout.php">Logout</a>';
        }
        else{
-           echo 'Bạn chưa đăng nhập';
+           echo 'Bạn chưa đăng nhập'."<br/>";
+
+           echo 'Click vào đây để <a href="login.php">Đăng nhập</a>';
        }
        ?>
     </body>

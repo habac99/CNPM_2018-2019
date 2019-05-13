@@ -1,3 +1,10 @@
+<!--<html>-->
+<!--<head>-->
+<!--    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />-->
+<!--    <title>đang xủ lý </title>-->
+<!--    <link rel="stylesheet" type="text/css" href="Styles/signup.css">-->
+<!--</head>-->
+<!--</html>-->
 <?php
 /**
  * Created by PhpStorm.
@@ -7,6 +14,7 @@
  */
 
 
+
     // Nếu không phải là sự kiện đăng ký thì không xử lý
     if (!isset($_POST['txtUsername'])){
         die('');
@@ -14,11 +22,12 @@
 
     //Nhúng file kết nối với database
     include('connect.php');
+    include('functionlogin.php');
 
-    //Khai báo utf-8 để hiển thị được tiếng việt
+
     header('Content-Type: text/html; charset=UTF-8');
 
-    //Lấy dữ liệu từ file dangky.php
+
     $username   = addslashes($_POST['txtUsername']);
     $password   = addslashes($_POST['txtPassword']);
     $email      = addslashes($_POST['txtEmail']);
@@ -75,8 +84,18 @@
             '{$phone}'
         )
     ");
-        if ($addstudent)
-            echo "Quá trình đăng ký thành công. <a href='login.php'>Đăng nhập</a>";
+        if ($addstudent){
+          echo "Quá trình đăng ký thành công, đang chuyển hướng...... ";
+
+
+
+          sleep(3);
+            //header("Location: login.php");
+
+
+
+        }
+
         else
             echo "Có lỗi xảy ra trong quá trình đăng ký. <a href='signup.php'>Thử lại</a>";
 
@@ -114,7 +133,15 @@
         )
     ");
         if($addteacher){
-            echo "Quá trình đăng ký thành công. <a href='login.php'>Đăng nhập</a>";
+            echo "Quá trình đăng ký thành công, đang chuyển hướng...... ";
+
+
+
+            sleep(3);
+            //header("Location: login.php");
+
+
+
 
         }
         else
@@ -122,7 +149,7 @@
 
     }
 
-
+    login($username,$password,$pos);
     //Thông báo quá trình lưu
 
 

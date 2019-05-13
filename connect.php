@@ -13,3 +13,6 @@ $connect = mysqli_connect(
 
 or
 die("Không thể kết nối database");
+return $connect;
+
+
