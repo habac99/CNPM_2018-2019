@@ -90,7 +90,9 @@
 
 
           sleep(3);
-            //header("Location: login.php");
+
+
+            login($username,$password,$pos);
 
 
 
@@ -138,6 +140,7 @@
 
 
             sleep(3);
+            login($username,$password,$pos);
             //header("Location: login.php");
 
 
@@ -149,7 +152,7 @@
 
     }
 
-    login($username,$password,$pos);
+
     //Thông báo quá trình lưu
 
 

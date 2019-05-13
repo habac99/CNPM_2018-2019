@@ -25,7 +25,7 @@
         <input class="pos" name="position" type="radio" value="giaovien" id="hoc" />Giáo Viên
         <input class="pos" name="position" type="radio" value="hocsinh" />Học Sinh
     </div>
-    <input class="submit" type="submit" value="Đăng ký" />
+    <input class="submit" type="submit" name="signup" value="Đăng ký" />
     <input class="reset" type="reset" value="Nhập lại" />
 </form>
 </body>
