@@ -17,12 +17,21 @@
   <body>
   <div class="topnav">
     
-        <a href="#home" class="" onclick="randomf()">Trang chủ</a>
-        <a href="#thongtin" class="" onclick="randomf()">Thông tin</a>
-        <a href="#lambai" class="active" onclick="randomf()">Làm bài </a>
-        <a href="#bangdiem" class="" onclick="randomf()">Bảng xếp hạng</a>
+        <a href="#home" >Trang chủ</a>
+        <a href="#thongtin" >Thông tin</a>
+        <a href="#lambai" >Làm bài </a>
+        <a href="#bangdiem" >Bảng xếp hạng</a>
         <button >Đăng xuất</button>
-        <p>Xin chào : Người Chơi 1</p>
+        <p><?php
+            $connect = mysqli_connect(
+              'localhost', 'root', '', 'cnpmdatabase'
+            );
+            $sql = 'SELECT * FROM `hocsinh` where stcode="hs1" limit 1';
+            $result = $connect->query($sql); if (mysqli_num_rows($result) > 0) {
+              while($row = mysqli_fetch_assoc($result)) { echo 'Xin Chào : '. $row["Name"] .'
+              '; } } else { echo "0 result"; } mysqli_close($connect);
+        ?>
+        </p>
   </div>
   <div id ="home" class="content"> 
 

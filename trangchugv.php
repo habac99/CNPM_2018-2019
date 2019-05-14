@@ -6,6 +6,24 @@
     <link rel="stylesheet" type="text/css" href="Styles/thongtin.css" />
   </head>
   <body>
+  <div class="topnav">
+      <a href="#home">Trang chủ</a>
+      <a href="#thongtin">Thông tin</a>
+      <a href="taide" class="active">Tải đề </a>
+      <a href="#bangxephang">Bảng Điểm</a>
+      <button>Đăng xuất</button>
+      <p>           
+        <?php
+            $connect = mysqli_connect(
+              'localhost', 'root', '', 'cnpmdatabase'
+            );
+            $sql = 'SELECT * FROM `giaovien` where tccode="gv1" limit 1';
+            $result = $connect->query($sql); if (mysqli_num_rows($result) > 0) {
+              while($row = mysqli_fetch_assoc($result)) { echo 'Xin Chào : '. $row["Name"] .'
+              '; } } else { echo "0 result"; } mysqli_close($connect);
+        ?>
+        </p>
+    </div>
     <div class="content">
       <div id="home"></div>
 
