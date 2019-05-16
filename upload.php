@@ -111,10 +111,10 @@ if (isset($_POST['uploadclick']))
         <div class="col-15">
 
         </div>
-        <div class="col-70">
-            <label for="examname">Tên đề : </label>
-            <input type="text" name="examname" id="examname" style="float:none;">
-        </div>
+<!--        <div class="col-70">-->
+<!--            <label for="examname">Tên đề : </label>-->
+<!--            <input type="text" name="examname" id="examname" style="float:none;">-->
+<!--        </div>-->
     </div>
     <div class="row">
         
@@ -132,7 +132,7 @@ if (isset($_POST['uploadclick']))
 
         </div>
     <div class="col-70">
-        <label for="upload2">Tải đáp án + pattern : </label>
+        <label for="upload2">Tải đáp án + hướng dẫn giải : </label>
         <input type="file" name="upload2" id="upload2">
         </div>
     </div>

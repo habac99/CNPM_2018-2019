@@ -16,9 +16,9 @@ if (session_id() == '')
     <a href="stHome.php">Trang chủ</a>
     <a href="thongtincanhan.html" >Thông tin</a>
     <a href="doexam.php" class="active" >Làm bài </a>
-    <a href="#">Bảng xếp hạng</a>
+    <a href="history.php">Lịch sử làm bài</a>
     <a href="logout.php" >Đăng xuất </a>
-    <p>Xin chào : Người Chơi 1</p>
+
 </div>
 
 

@@ -1,7 +1,7 @@
 <?php
 
-$a = 6;
-$b = 7;
-$c = 8;
-$d= array($a,$b,$c);
-echo $d[1];
+$a = "upload/dethi/Lịch-thi-học-kỳ-II.pdf";
+
+
+
+echo substr($a,13);
