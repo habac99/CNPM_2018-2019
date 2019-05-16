@@ -31,13 +31,47 @@ body {
   background-color: rgb(0, 148, 44);
 }
 .topnav p,
-button {
+a.button {
   float: right;
   text-align: right;
   font-size: 20px;
   margin: 0 5px;
   border: none;
   padding: 10px 15px;
+  color: white;
+}
+
+button {
+  float: right;
+
+  font-size: 20px;
+  margin: 0 5px;
+  border: none;
+  background-color: rgb(71, 71, 71);
+
+  padding: 10px 15px;
+  color: white;
+}
+#thongtin input[type="submit"] {
+  float: right;
+  -webkit-appearance: button;
+  -moz-appearance: button;
+  appearance: button;
+  font-size: 20px;
+  margin: 0 5px;
+  border: none;
+  background-color: rgb(71, 71, 71);
+  text-decoration: none;
+  padding: 10px 15px;
+  color: white;
+}
+
+.topnav a.button {
+  -webkit-appearance: button;
+  -moz-appearance: button;
+  appearance: button;
+  background-color: rgb(156, 47, 28);
+  text-decoration: none;
   color: white;
 }
 .topnav button {
@@ -95,6 +129,14 @@ label {
   height: 100%;
   float: right;
   text-align: center;
+}
+#gioitinh input[type="text"] {
+  border: 1px solid black;
+  border-radius: 4px;
+  resize: vertical;
+  font-size: 20px;
+  width: 15%;
+  padding: 12px;
 }
 input[type="date"] {
   width: 30%;
