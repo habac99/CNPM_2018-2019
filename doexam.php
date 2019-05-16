@@ -1,23 +1,14 @@
 <?php
-//    $file='abc.pdf';
-//    $filename='abc.pdf';
-//    header('Content-type: application/pdf');
-//    header('Content-Disposition: inline; filename="'.$filename.'"');
-//    header('Content-Transfer-Encoding: binary');
-//    header('Accept-Ranges: bytes');
-//    @readfile($file);
-//
-//?>
+if (session_id() == '')
+    session_start();
+?>
 
+
+<!DOCTYPE html>
 
 <html>
-<head  >
 
-    <link rel="stylesheet" type="text/css" href="styles/index.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta charset="UTF-8">
 
-</head>
 <body>
 
 <div class="topnav">
@@ -29,6 +20,7 @@
     <a href="logout.php" >Đăng xuất </a>
     <p>Xin chào : Người Chơi 1</p>
 </div>
+
 
 <div class="content" id="lambai">
 
@@ -45,10 +37,10 @@
         <!--Bang nhap dap an-->
 
         <div class="row">
-            <form action="">
+            <form action="calculatescore.php" method="POST">
                 <table>
                     <tr>
-                        <td><input type="text" id="answer1" name="answer1" pattern="[A-Da-d]{1}" value="A">Câu 1 </td>
+                        <td><input type="text" id="answer1" name="answer1" pattern="[A-Da-d]{1}" value="">Câu 1 </td>
                         <td><input type="text" id="answer2" name="answer2" pattern="[A-Da-d]{1}" value="">Câu 2 </td>
                         <td><input type="text" id="answer3" name="answer3" pattern="[A-Da-d]{1}" value="">Câu 3 </td>
                         <td><input type="text" id="answer4" name="answer4"  pattern="[A-Da-d]{1}" value="">Câu 4 </td>
@@ -119,8 +111,9 @@
                         <td><input type="text" id="answer50" name="answer50"  pattern="[A-Da-d]{1}" value="">Câu 50 </td>
                     </tr>
                 </table>
-                <input type="submit" value="Nộp Bài">
+                <input type="submit" name="nopbai" value="Nộp Bài">
             </form>
+
 
         </div>
     </div>
@@ -154,10 +147,24 @@
         return sec;
     }
 </script>
-<iframe src="abc.pdf" style="width:800px; height:800px;" frameborder="0"></iframe>
+<?php
+
+include('chooseexam.php');
+choose();
+
+?>
+
 
 
 </body>
+<head  >
+
+    <link rel="stylesheet" type="text/css" href="styles/index.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+
+
+</head>
 </html>
 
 
