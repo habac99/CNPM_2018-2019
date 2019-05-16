@@ -4,7 +4,10 @@
 
     //Khai báo utf-8 để hiển thị được tiếng việt
     header('Content-Type: text/html; charset=UTF-8');
-
+  
+    session_start();
+    
+  
     
 ?>
 <!DOCTYPE html>
@@ -21,14 +24,15 @@
         <a href="#thongtin" >Thông tin</a>
         <a href="#lambai" >Làm bài </a>
         <a href="#bangdiem" >Bảng xếp hạng</a>
-        <button >Đăng xuất</button>
+        <button href="logout.php">Đăng xuất</button>
         <p><?php
+            $username = $_SESSION['username'];
             $connect = mysqli_connect(
               'localhost', 'root', '', 'cnpmdatabase'
             );
-            $sql = 'SELECT * FROM `hocsinh` where stcode="hs1" limit 1';
+            $sql =  "SELECT * FROM `hocsinh` where stUsername='$username' limit 1";
             $result = $connect->query($sql); if (mysqli_num_rows($result) > 0) {
-              while($row = mysqli_fetch_assoc($result)) { echo 'Xin Chào : '. $row["Name"] .'
+              while($row = mysqli_fetch_assoc($result)) { echo 'Xin Chào : '. $row["fullName"] .'
               '; } } else { echo "0 result"; } mysqli_close($connect);
         ?>
         </p>
@@ -46,15 +50,16 @@
         </div>
          <div class="col-70">
             <?php
+            $username = $_SESSION['username'];
             $connect = mysqli_connect(
               'localhost', 'root', '', 'cnpmdatabase'
             );
-            $sql = 'SELECT * FROM `hocsinh` where stcode="hs1" limit 1';
+            $sql = "SELECT * FROM `hocsinh` where stUsername='$username' limit 1";
             $result = $connect->query($sql);
            
             if (mysqli_num_rows($result) > 0) {
               while($row = mysqli_fetch_assoc($result)) {
-              echo '<input type="text" id="name" name="name" value="'. $row["Name"] .'" disabled>';
+              echo '<input type="text" id="name" name="name" value="'. $row["fullName"] .'" disabled>';
               
               }
             }
@@ -71,15 +76,16 @@
             </div>
             <div class="col-70">
             <?php
+            $username = $_SESSION['username'];
             $connect = mysqli_connect(
               'localhost', 'root', '', 'cnpmdatabase'
             );
-            $sql = 'SELECT * FROM `hocsinh` where stcode="hs1" limit 1';
+            $sql =  "SELECT * FROM `hocsinh` where stUsername='$username' limit 1";;
             $result = $connect->query($sql);
            
             if (mysqli_num_rows($result) > 0) {
               while($row = mysqli_fetch_assoc($result)) {
-              echo '<input type="date" id="dateofbirth" name="dateofbirth" value="'. $row["DateOfBirth"] .'" disabled>';
+              echo '<input type="date" id="dateofbirth" name="dateofbirth" value="'. $row["Birthday"] .'" disabled>';
               
               }
             }
@@ -113,10 +119,11 @@
                     </div>
                     <div class="col-70">
                     <?php
-                       $connect = mysqli_connect(
+                    $username = $_SESSION['username'];
+                    $connect = mysqli_connect(
                          'localhost', 'root', '', 'cnpmdatabase'
                   );
-                  $sql = 'SELECT * FROM `hocsinh` where stcode="hs1" limit 1';
+                  $sql = "SELECT * FROM `hocsinh` where stUsername='$username' limit 1";
                   $result = $connect->query($sql);
            
                   if (mysqli_num_rows($result) > 0) {
@@ -138,10 +145,11 @@
             </div>
             <div class="col-70">
             <?php
+            $username = $_SESSION['username'];
             $connect = mysqli_connect(
               'localhost', 'root', '', 'cnpmdatabase'
             );
-            $sql = 'SELECT * FROM `hocsinh` where stcode="hs1" limit 1';
+            $sql = "SELECT * FROM `hocsinh` where stUsername='$username' limit 1";
             $result = $connect->query($sql);
            
             if (mysqli_num_rows($result) > 0) {
@@ -160,13 +168,13 @@
         </div>
         <div class="row">
             <div class="col-70">
-                <button type="button" onclick="fixFunction()">Thay đổi thông tin cá nhân</button>
+                <button type="button" onclick="fixFunction()">Sửa thông tin cá nhân</button>
             </div>
         </div>
     </form>
 
       
-    <div class="content">
+    <div class="lambai">
       <!--Đang nghiên cứu-->
               <div class = "row">
                 <a href="">Đề 1</a>
@@ -174,7 +182,7 @@
               </div>
     </div>
 
-    <div class = "content">
+    <div class = "bangdiem">
       <div class = "row">
               <!--Lấy bảng điểm từ database-->
               <table>
@@ -192,7 +200,8 @@
       </div>
             
     </div>
-  
+              
+            
     <script>
         function fixFunction(){
             var input = document.getElementsByTagName('input');

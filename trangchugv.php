@@ -1,3 +1,15 @@
+<?php
+    //Nhúng file kết nối với database
+    include('connect.php');
+
+    //Khai báo utf-8 để hiển thị được tiếng việt
+    header('Content-Type: text/html; charset=UTF-8');
+  
+    session_start();
+    
+  
+    
+?>
 <!DOCTYPE html>
 <html>
   <head>
@@ -9,17 +21,19 @@
   <div class="topnav">
       <a href="#home">Trang chủ</a>
       <a href="#thongtin">Thông tin</a>
-      <a href="taide" class="active">Tải đề </a>
+      <a href="#taide" >Tải đề </a>
       <a href="#bangxephang">Bảng Điểm</a>
-      <button>Đăng xuất</button>
+      <a href="logout.php" class="button">Đăng xuất</a>
       <p>           
         <?php
+            $username = $_SESSION['username'];
             $connect = mysqli_connect(
               'localhost', 'root', '', 'cnpmdatabase'
             );
-            $sql = 'SELECT * FROM `giaovien` where tccode="gv1" limit 1';
-            $result = $connect->query($sql); if (mysqli_num_rows($result) > 0) {
-              while($row = mysqli_fetch_assoc($result)) { echo 'Xin Chào : '. $row["Name"] .'
+            $sql = "SELECT * FROM `giaovien` where tcUsername= '$username' limit 1";
+            $result = $connect->query($sql); 
+            if (mysqli_num_rows($result) > 0) {
+              while($row = mysqli_fetch_assoc($result)) { echo 'Xin Chào : '. $row["fullName"] .'
               '; } } else { echo "0 result"; } mysqli_close($connect);
         ?>
         </p>
@@ -31,7 +45,7 @@
 
       <div id="thongtin">
         <p style="font-size: 20px">Thông tin cá nhân :</p>
-        <form action="">
+        <form action="thaydoithongtin.php" method="POST">
           <!--Cot 15 dau tien-->
           <div class="col-15">
             <div class="row" style="margin-top:10px;">
@@ -54,39 +68,53 @@
           <div class="col-70">
             <div class="row" style="margin-top:10px;">
               <?php
+              $username = $_SESSION['username'];
             $connect = mysqli_connect(
               'localhost', 'root', '', 'cnpmdatabase'
             );
-            $sql = 'SELECT * FROM `giaovien` where tccode="gv1" limit 1';
+            $sql = "SELECT * FROM `giaovien` where tcUsername= '$username' limit 1";
             $result = $connect->query($sql); if (mysqli_num_rows($result) > 0) {
               while($row = mysqli_fetch_assoc($result)) { echo '<input
-              type="text" id="name" name="name" value="'. $row["Name"] .'"
-              disabled>'; } } else { echo "0 result"; } mysqli_close($connect);
+              type="text" id="name" name="name" value="'. $row["fullName"] .'"
+              >'; } } else { echo "0 result"; } mysqli_close($connect);
               ?>
             </div>
 
-            <div class="row" style="margin-top:10px;">
+            <div class="row" style="margin-top:10px;" id="gioitinh">
               <?php
+              $username = $_SESSION['username'];
             $connect = mysqli_connect(
               'localhost', 'root', '', 'cnpmdatabase'
             );
-            $sql = 'SELECT * FROM `giaovien` where tccode="gv1" limit 1';
-            $result = $connect->query($sql); if (mysqli_num_rows($result) > 0) {
-              while($row = mysqli_fetch_assoc($result)) { echo '<input
-              type="date" id="dateofbirth" name="dateofbirth" value="'.
-              $row["DateOfBirth"] .'" disabled>'; } } else { echo "0 result"; }
-              mysqli_close($connect); ?>
+            $sql = "SELECT * FROM `giaovien` where tcUsername= '$username' limit 1";
+            $result = $connect->query($sql); 
+            if (mysqli_num_rows($result) > 0) {
+              while($row = mysqli_fetch_assoc($result)) { 
+              echo '<input type="date" id="dateofbirth" name="dateofbirth" value="'. $row["Birthday"].'" >'; 
+              } 
+            } else {
+               echo "0 result"; 
+              }
+              mysqli_close($connect); 
+              ?>
               <label for="gender">Giới tính</label>
-              <select
-                id="gender"
-                name="gender"
-                id="gender"
-                value="Nam"
-                disabled
-              >
-                <option value="male">Nam</option>
-                <option value="female">Nữ</option>
-              </select>
+
+              <?php
+              $username = $_SESSION['username'];
+            $connect = mysqli_connect(
+              'localhost', 'root', '', 'cnpmdatabase'
+            );
+            $sql = "SELECT * FROM `giaovien` where tcUsername= '$username' limit 1";
+            $result = $connect->query($sql); 
+            if (mysqli_num_rows($result) > 0) {
+              while($row = mysqli_fetch_assoc($result)) {
+              echo '<input type="text" id="gioitinh" name="gender" value="'. $row["gender"] .'" >';
+            } 
+          } else {
+             echo "0 result"; 
+            }
+              mysqli_close($connect); 
+              ?>
             </div>
 
             <div class="row" style="margin-top:10px;">
@@ -101,34 +129,37 @@
 
             <div class="row" style="margin-top:10px;">
               <?php
+              $username = $_SESSION['username'];
                        $connect = mysqli_connect(
                          'localhost', 'root', '', 'cnpmdatabase'
                   );
-                  $sql = 'SELECT * FROM `giaovien` where tccode="gv1" limit 1';
+                  $sql = "SELECT * FROM `giaovien` where tcUsername= '$username' limit 1";
                   $result = $connect->query($sql); if (mysqli_num_rows($result)
               > 0) { while($row = mysqli_fetch_assoc($result)) { echo '<input
-              type="email" id="dateofbirth" name="dateofbirth" value="'.
-              $row["email"] .'" disabled>'; } } else { echo "0 result"; }
+              type="email" id="email" name="email" value="'.
+              $row["email"] .'" >'; } } else { echo "0 result"; }
               mysqli_close($connect); ?>
             </div>
 
             <div class="row" style="margin-top:10px;">
               <?php
+              $username = $_SESSION['username'];
             $connect = mysqli_connect(
               'localhost', 'root', '', 'cnpmdatabase'
             );
-            $sql = 'SELECT * FROM `giaovien` where tccode="gv1" limit 1';
+            $sql = "SELECT * FROM `giaovien` where tcUsername= '$username' limit 1";
             $result = $connect->query($sql); if (mysqli_num_rows($result) > 0) {
               while($row = mysqli_fetch_assoc($result)) { echo '<input
               type="number" id="phonenumer" name="phonenumber" value="'.
-              $row["phonenumber"] .'" disabled>'; } } else { echo "0 result"; }
+              $row["phonenumber"] .'" >'; } } else { echo "0 result"; }
               mysqli_close($connect); ?>
             </div>
 
             <div class="row" style="margin:50px 0px;">
-
+                
+              <input class="submit" type="submit" name="signup" value="Xác nhận" />
               <button type="button" onclick="fixFunction()">
-                Thay đổi thông tin cá nhân
+                Sửa thông tin cá nhân
               </button>
             </div>
           </div>
@@ -145,7 +176,7 @@
       <div id="taide">
          <!--Form send file to php page-->
       <form action="">
-        <div class="row">
+        <div class="row" id="thongtin">
           <div class="col-15"></div>
           <div class="col-70">
             <label for="examname">Tên đề : </label>
@@ -663,5 +694,13 @@
 
       <div class="row"></div>
     </div>
+    <script>
+        function fixFunction(){
+            var input = document.getElementsByTagName('input');
+            for (var i = input.length, n = 0; n < i; n++){
+                input[n].disabled = false;
+            }
+        }
+    </script>
   </body>
 </html>
