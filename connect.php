@@ -13,6 +13,7 @@ $connect = mysqli_connect(
 
 or
 die("Không thể kết nối database");
+mysqli_set_charset($connect,'utf8');
 return $connect;
 
 

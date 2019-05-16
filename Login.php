@@ -7,7 +7,7 @@
 
 
 
-header('Content-Type: text/html; charset=UTF-8');
+//header('Content-Type: text/html; charset=UTF-8');
 
 //Xử lý đăng nhập
 if (isset($_POST['dangnhap']))
@@ -15,6 +15,7 @@ if (isset($_POST['dangnhap']))
 
     include('connect.php');
     include('functionlogin.php');
+
     $username = addslashes($_POST['txtUser']);
     $password = ($_POST['txtPassword']);
     $pos      = ($_POST['position']);
@@ -24,7 +25,9 @@ if (isset($_POST['dangnhap']))
         exit;
     }else{
         $password = md5($password);
+
         login($username,$password,$pos);
+        //setcookie('user',$username,3600);
 
     }
 }

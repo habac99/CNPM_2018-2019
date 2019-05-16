@@ -20,7 +20,7 @@
         die('');
     }
 
-    //Nhúng file kết nối với database
+
     include('connect.php');
     include('functionlogin.php');
 
