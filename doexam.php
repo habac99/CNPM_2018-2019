@@ -14,7 +14,7 @@ if (session_id() == '')
 <div class="topnav">
 
     <a href="stHome.php">Trang chủ</a>
-    <a href="thongtincanhan.html" >Thông tin</a>
+    <a href="thongtincanhan.php" >Thông tin</a>
     <a href="doexam.php" class="active" >Làm bài </a>
     <a href="history.php">Lịch sử làm bài</a>
     <a href="logout.php" >Đăng xuất </a>

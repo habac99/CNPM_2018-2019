@@ -126,3 +126,18 @@ label {
   margin-top: 10px;
   float: left;
 }
+.submit{
+  /*box-sizing: border-box;*/
+  /*padding: 20px;*/
+  /*background:#1abc9c;*/
+  border: none;
+  background: #1abc9c;
+  cursor: pointer;
+  border-radius: 3px;
+  padding: 6px;
+  color: white;
+  margin-left: 25px;
+  margin-top : 25px;
+  box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.2);
+
+}
