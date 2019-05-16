@@ -13,12 +13,22 @@ if (session_id() == '')
 
 <div class="topnav">
 
-    <a href="stHome.php">Trang chủ</a>
+    <a href="trangchuhs.php">Trang chủ</a>
     <a href="thongtincanhan.php" >Thông tin</a>
     <a href="doexam.php" class="active" >Làm bài </a>
     <a href="history.php">Lịch sử làm bài</a>
-    <a href="logout.php" >Đăng xuất </a>
-
+    <a href="logout.php" class="button">Đăng xuất</a>
+        <p><?php
+            $username = $_SESSION['username'];
+            $connect = mysqli_connect(
+              'localhost', 'root', '', 'cnpmdatabase'
+            );
+            $sql =  "SELECT * FROM `hocsinh` where stUsername='$username' limit 1";
+            $result = $connect->query($sql); if (mysqli_num_rows($result) > 0) {
+              while($row = mysqli_fetch_assoc($result)) { echo 'Xin Chào : '. $row["fullName"] .'
+              '; } } else { echo "0 result"; } mysqli_close($connect);
+        ?>
+        </p>
 </div>
 
 
@@ -121,32 +131,45 @@ if (session_id() == '')
 </div>
 
 <script>
-    document.getElementById("demo").innerHTML = 1 + " min : " + 0 + " sec left!";
-    var x = setInterval(function(){
-        var currenttime = document.getElementById("demo").innerHTML;
-        var time_array = currenttime.split("min :");
-        time_array[1] = time_array[1].replace('sec left!','');
-        document.getElementById("demo").innerHTML = time_array[1];
-        var min = time_array[0];
-        var sec = decoratesec((time_array[1]-1));
-        if ( sec == 59){
-            min = min -1;
-        }
-        document.getElementById("demo").innerHTML = min + " min : " + sec + " sec left!";
-        if ( min == 0 && time == 0)
-            clearInterval(x);
-        document.getElementById("demo").innerHTML = "Time Up!";
-        /*Thêm một cửa sổ pop up + hướng trang kết quả*/
-    }, 1000);
+      // 10 minutes from now
+      var time_in_minutes = 90;
+      var current_time = Date.parse(new Date());
+      var deadline = new Date(current_time + time_in_minutes * 60 * 1000);
 
-    function decoratesec(sec){
-        if ( sec >= 0 && sec < 10 )
-            sec = "0" + sec;
-        if ( sec < 0)
-            sec = "59";
-        return sec;
-    }
-</script>
+      function time_remaining(endtime) {
+        var t = Date.parse(endtime) - Date.parse(new Date());
+        var seconds = Math.floor((t / 1000) % 60);
+        var minutes = Math.floor((t / 1000 / 60) % 60);
+        var hours = Math.floor((t / (1000 * 60 * 60)) % 24);
+        var days = Math.floor(t / (1000 * 60 * 60 * 24));
+        return {
+          total: t,
+          days: days,
+          hours: hours,
+          minutes: minutes,
+          seconds: seconds
+        };
+      }
+      function run_clock(id, endtime) {
+        function update_clock() {
+          var t = time_remaining(endtime);
+          document.getElementById(id).innerHTML =
+            t.hours +
+            " hours : " +
+            t.minutes +
+            " minutes : " +
+            t.seconds +
+            " seconds left!";
+          if (t.total <= 0) {
+            clearInterval(timeinterval);
+            document.getElementById("demo").innerHTML = "Hết Giờ!!";
+          }
+        }
+        update_clock(); // run function once at first to avoid delay
+        var timeinterval = setInterval(update_clock, 1000);
+      }
+      run_clock("demo", deadline);
+    </script>
 <?php
 
 include('chooseexam.php');

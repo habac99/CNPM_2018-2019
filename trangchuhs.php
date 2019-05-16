@@ -20,11 +20,11 @@
   <body>
   <div class="topnav">
     
-        <a href="#home" >Trang chủ</a>
-        <a href="#thongtin" >Thông tin</a>
-        <a href="#lambai" >Làm bài </a>
-        <a href="#bangdiem" >Bảng xếp hạng</a>
-        <button href="logout.php">Đăng xuất</button>
+        <a href="trangchuhs.php" class="active">Trang chủ</>
+        <a href="thongtincanhan.php" >Thông tin</a>
+        <a href="doexam.php"  >Làm bài </a>
+        <a href="history.php">Lịch sử làm bài</a>
+        <a href="logout.php" class="button">Đăng xuất</a>
         <p><?php
             $username = $_SESSION['username'];
             $connect = mysqli_connect(
@@ -36,6 +36,7 @@
               '; } } else { echo "0 result"; } mysqli_close($connect);
         ?>
         </p>
+        
   </div>
   <div id ="home" class="content"> 
 
@@ -43,7 +44,7 @@
 
   <div id="thongtin" class = "content">
   <p style="font-size: 20px">Thông tin cá nhân :</p>
-    <form action="">
+    
         <div class="row">
          <div class="col-15">
             <label for="name">Họ và Tên</label>
@@ -137,8 +138,8 @@
               }
               mysqli_close($connect); 
             ?>
-                </div>
-        </div>
+            </div>
+            </div>
         <div class="row">
             <div class="col-15">
                 <label for="phonenumber">Số diện thoại</label>
@@ -166,54 +167,6 @@
 
             </div>
         </div>
-        <div class="row">
-            <div class="col-70">
-                <button type="button" onclick="fixFunction()">Sửa thông tin cá nhân</button>
-            </div>
-        </div>
-    </form>
-
-      
-    <div class="lambai">
-      <!--Đang nghiên cứu-->
-              <div class = "row">
-                <a href="">Đề 1</a>
-                <a href="">Đề 2</a>
-              </div>
-    </div>
-
-    <div class = "bangdiem">
-      <div class = "row">
-              <!--Lấy bảng điểm từ database-->
-              <table>
-                <tr>
-                  <td>Đề 1</td>
-                  <td>Điểm đề 1 </td>
-                </tr>
-                <tr>
-                  <td>
-                    Đề 2
-                  </td>
-                  <td>Điểm Đề 2</td>
-                </tr>
-              </table>
-      </div>
-            
-    </div>
-              
-            
-    <script>
-        function fixFunction(){
-            var input = document.getElementsByTagName('input');
-            for (var i = input.length, n = 0; n < i; n++){
-                input[n].disabled = !input[n].disabled;
-            }
-        }
-        function randomf(){
-          var input = document.getElementsByClass("")
-        }
-    </script>
-
   </div>
   </body>
 </html>

@@ -1,8 +1,13 @@
 
-<!DOCTYPE html>
+
 <?php
+
 include('connect.php');
+
 include('functionlogin.php');
+
+session_start();
+
 $username = $_SESSION['username'];
 
 if (isset($_POST['uploadclick']))
@@ -85,25 +90,36 @@ if (isset($_POST['uploadclick']))
 }
 ?>
 
+<!DOCTYPE html>
 <html>
     <head>
 
-    <link rel="stylesheet" type="text/css" href="Styles/index.css">
+    <link rel="stylesheet" type="text/css" href="Styles/thongtin.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="UTF-8">
 
     </head>
 <body>
 <div class="topnav">
-    
-        <a href="tcHome.php">Trang chủ</a>
-        <a href="#">Thông tin</a>
-        <a href="upload.php" class="active">Tải đề </a>
-        <a href="#">Thông tin người chơi</a>
-<!--        <a href="#">Thông tin phụ huynh người chơi</a>-->
-        <a href="logout.php" >Đăng xuất </a>
-<!--        <p>Xin chào : Quản trị viên 1</p>-->
-</div>
+<a href="trangchugv.php" >Trang chủ</a>
+      <a href="thongtincanhan.php">Thông tin</a>
+      <a href="upload.php" class="active">Tải đề </a>
+      <a href="bangxephang.php">Bảng Điểm</a>
+      <a href="logout.php" class="button">Đăng xuất</a>
+      <p>           
+        <?php
+            $username = $_SESSION['username'];
+            $connect = mysqli_connect(
+              'localhost', 'root', '', 'cnpmdatabase'
+            );
+            $sql = "SELECT * FROM `giaovien` where tcUsername= '$username' limit 1";
+            $result = $connect->query($sql); 
+            if (mysqli_num_rows($result) > 0) {
+              while($row = mysqli_fetch_assoc($result)) { echo 'Xin Chào : '. $row["fullName"] .'
+              '; } } else { echo "0 result"; } mysqli_close($connect);
+        ?>
+        </p>
+    </div>
 <div class="content" id="taide">
     <!--Form send file to php page-->
     <form method="post" action="" enctype="multipart/form-data" >
